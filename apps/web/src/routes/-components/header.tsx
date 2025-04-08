@@ -5,8 +5,8 @@ import { Separator } from "#/components/ui/separator";
 
 function Header() {
   return (
-    <header className=" bg-white">
-      <nav className="flex items-center justify-between p-4">
+    <header className="sticky top-0 z-20 bg-white/50">
+      <nav className="flex items-center justify-between p-3">
         <div className="flex items-center">
           <Link to="/" className="text-xl font-bold text-primary">
             Bookiwi

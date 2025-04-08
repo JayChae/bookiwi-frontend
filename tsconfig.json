@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      // 모듈 경로 별칭을 설정하여 import 경로를 간소화합니다.
+      "#bookiwi/reader/*": ["apps/reader/src/*"], // #bookiwi/reader/* → apps/reader/src/*로 매핑
+      "#bookiwi/internal": ["packages/internal/src/index.ts"], // #bookiwi/internal → packages/internal/src/index.ts로 매핑
+      "#bookiwi/epubjs/*": ["packages/epubjs/*"] // #bookiwi/epubjs/* → packages/epubjs/*로 매핑
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

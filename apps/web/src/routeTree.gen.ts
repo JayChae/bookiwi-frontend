@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as MyLibraryIndexImport } from './routes/my-library/index'
 import { Route as BookRoomIdImport } from './routes/book-room/$id'
 
 // Create/Update Routes
@@ -19,6 +20,12 @@ import { Route as BookRoomIdImport } from './routes/book-room/$id'
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MyLibraryIndexRoute = MyLibraryIndexImport.update({
+  id: '/my-library/',
+  path: '/my-library/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,6 +53,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookRoomIdImport
       parentRoute: typeof rootRoute
     }
+    '/my-library/': {
+      id: '/my-library/'
+      path: '/my-library'
+      fullPath: '/my-library'
+      preLoaderRoute: typeof MyLibraryIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +68,41 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book-room/$id': typeof BookRoomIdRoute
+  '/my-library': typeof MyLibraryIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book-room/$id': typeof BookRoomIdRoute
+  '/my-library': typeof MyLibraryIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/book-room/$id': typeof BookRoomIdRoute
+  '/my-library/': typeof MyLibraryIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/book-room/$id'
+  fullPaths: '/' | '/book-room/$id' | '/my-library'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/book-room/$id'
-  id: '__root__' | '/' | '/book-room/$id'
+  to: '/' | '/book-room/$id' | '/my-library'
+  id: '__root__' | '/' | '/book-room/$id' | '/my-library/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookRoomIdRoute: typeof BookRoomIdRoute
+  MyLibraryIndexRoute: typeof MyLibraryIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookRoomIdRoute: BookRoomIdRoute,
+  MyLibraryIndexRoute: MyLibraryIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/book-room/$id"
+        "/book-room/$id",
+        "/my-library/"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/book-room/$id": {
       "filePath": "book-room/$id.tsx"
+    },
+    "/my-library/": {
+      "filePath": "my-library/index.tsx"
     }
   }
 }

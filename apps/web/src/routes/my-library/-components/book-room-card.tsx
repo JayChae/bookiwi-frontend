@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { memo } from "react";
 
 import CardDropdown from "./card-dropdown";
 
@@ -44,6 +45,7 @@ function BookRoomCard({
               src={image || fallbackImageUrl}
               alt="Book cover"
               className="size-full object-cover"
+              loading="lazy"
               onError={(e) => {
                 e.currentTarget.src = fallbackImageUrl;
               }}
@@ -58,4 +60,4 @@ function BookRoomCard({
   );
 }
 
-export default BookRoomCard;
+export default memo(BookRoomCard);

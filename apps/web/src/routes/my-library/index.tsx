@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import Header from "./-components/header";
+import ImportBookButton from "./-components/import-book-button";
 import Library from "./-components/library";
 import LinkInput from "./-components/link-input";
 
@@ -22,7 +23,10 @@ function MyLibrary() {
               {`(${bookRooms.length})`}
             </data>
           </h1>
-          <LinkInput />
+          <div className="flex items-center gap-3">
+            <LinkInput />
+            <ImportBookButton />
+          </div>
         </div>
 
         <Library bookRooms={bookRooms} />

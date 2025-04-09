@@ -1,3 +1,10 @@
 {
-  "extends": ["../../.eslintrc.json", "plugin:tailwindcss/recommended","plugin:@tanstack/eslint-plugin-router/recommended"]
+  "extends": [
+    "../../.eslintrc.json",
+    "plugin:tailwindcss/recommended",
+    "plugin:@tanstack/eslint-plugin-router/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-use-before-define": "off"
+  }
 }

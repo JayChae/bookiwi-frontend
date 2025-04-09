@@ -10,66 +10,123 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as IndexImport } from "./routes/index";
+import { Route as rootRoute } from './routes/__root'
+import { Route as IndexImport } from './routes/index'
+import { Route as MyPageIndexImport } from './routes/my-page/index'
+import { Route as MyLibraryIndexImport } from './routes/my-library/index'
+import { Route as BookRoomIdImport } from './routes/book-room/$id'
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const MyPageIndexRoute = MyPageIndexImport.update({
+  id: '/my-page/',
+  path: '/my-page/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MyLibraryIndexRoute = MyLibraryIndexImport.update({
+  id: '/my-library/',
+  path: '/my-library/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BookRoomIdRoute = BookRoomIdImport.update({
+  id: '/book-room/$id',
+  path: '/book-room/$id',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/book-room/$id': {
+      id: '/book-room/$id'
+      path: '/book-room/$id'
+      fullPath: '/book-room/$id'
+      preLoaderRoute: typeof BookRoomIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/my-library/': {
+      id: '/my-library/'
+      path: '/my-library'
+      fullPath: '/my-library'
+      preLoaderRoute: typeof MyLibraryIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/my-page/': {
+      id: '/my-page/'
+      path: '/my-page'
+      fullPath: '/my-page'
+      preLoaderRoute: typeof MyPageIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
+  '/': typeof IndexRoute
+  '/book-room/$id': typeof BookRoomIdRoute
+  '/my-library': typeof MyLibraryIndexRoute
+  '/my-page': typeof MyPageIndexRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
+  '/': typeof IndexRoute
+  '/book-room/$id': typeof BookRoomIdRoute
+  '/my-library': typeof MyLibraryIndexRoute
+  '/my-page': typeof MyPageIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/book-room/$id': typeof BookRoomIdRoute
+  '/my-library/': typeof MyLibraryIndexRoute
+  '/my-page/': typeof MyPageIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/";
-  id: "__root__" | "/";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/book-room/$id' | '/my-library' | '/my-page'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/book-room/$id' | '/my-library' | '/my-page'
+  id: '__root__' | '/' | '/book-room/$id' | '/my-library/' | '/my-page/'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
+  IndexRoute: typeof IndexRoute
+  BookRoomIdRoute: typeof BookRoomIdRoute
+  MyLibraryIndexRoute: typeof MyLibraryIndexRoute
+  MyPageIndexRoute: typeof MyPageIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-};
+  BookRoomIdRoute: BookRoomIdRoute,
+  MyLibraryIndexRoute: MyLibraryIndexRoute,
+  MyPageIndexRoute: MyPageIndexRoute,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -77,11 +134,23 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/book-room/$id",
+        "/my-library/",
+        "/my-page/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/book-room/$id": {
+      "filePath": "book-room/$id.tsx"
+    },
+    "/my-library/": {
+      "filePath": "my-library/index.tsx"
+    },
+    "/my-page/": {
+      "filePath": "my-page/index.tsx"
     }
   }
 }

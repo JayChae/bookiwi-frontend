@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
+import Notification from "./notification";
+
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
 import { Separator } from "#/components/ui/separator";
 
@@ -12,17 +14,19 @@ function Header() {
             Bookiwi
           </Link>
         </div>
-        <div>
-          <button
-            type="button"
+        <div className="flex items-center gap-2">
+          {/* 알림 버튼 */}
+          <Notification />
+          <Link
+            to="/my-page"
             className="rounded-full p-2 hover:bg-gray-100"
             aria-label="Profile"
           >
-            <Avatar className="size-9">
+            <Avatar className="size-10">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-          </button>
+          </Link>
         </div>
       </nav>
       <Separator />

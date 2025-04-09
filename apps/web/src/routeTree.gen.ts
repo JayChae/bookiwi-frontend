@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as MyPageIndexImport } from './routes/my-page/index'
 import { Route as MyLibraryIndexImport } from './routes/my-library/index'
 import { Route as BookRoomIdImport } from './routes/book-room/$id'
 
@@ -20,6 +21,12 @@ import { Route as BookRoomIdImport } from './routes/book-room/$id'
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MyPageIndexRoute = MyPageIndexImport.update({
+  id: '/my-page/',
+  path: '/my-page/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MyLibraryIndexImport
       parentRoute: typeof rootRoute
     }
+    '/my-page/': {
+      id: '/my-page/'
+      path: '/my-page'
+      fullPath: '/my-page'
+      preLoaderRoute: typeof MyPageIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -69,12 +83,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book-room/$id': typeof BookRoomIdRoute
   '/my-library': typeof MyLibraryIndexRoute
+  '/my-page': typeof MyPageIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book-room/$id': typeof BookRoomIdRoute
   '/my-library': typeof MyLibraryIndexRoute
+  '/my-page': typeof MyPageIndexRoute
 }
 
 export interface FileRoutesById {
@@ -82,14 +98,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/book-room/$id': typeof BookRoomIdRoute
   '/my-library/': typeof MyLibraryIndexRoute
+  '/my-page/': typeof MyPageIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/book-room/$id' | '/my-library'
+  fullPaths: '/' | '/book-room/$id' | '/my-library' | '/my-page'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/book-room/$id' | '/my-library'
-  id: '__root__' | '/' | '/book-room/$id' | '/my-library/'
+  to: '/' | '/book-room/$id' | '/my-library' | '/my-page'
+  id: '__root__' | '/' | '/book-room/$id' | '/my-library/' | '/my-page/'
   fileRoutesById: FileRoutesById
 }
 
@@ -97,12 +114,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookRoomIdRoute: typeof BookRoomIdRoute
   MyLibraryIndexRoute: typeof MyLibraryIndexRoute
+  MyPageIndexRoute: typeof MyPageIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookRoomIdRoute: BookRoomIdRoute,
   MyLibraryIndexRoute: MyLibraryIndexRoute,
+  MyPageIndexRoute: MyPageIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +136,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/book-room/$id",
-        "/my-library/"
+        "/my-library/",
+        "/my-page/"
       ]
     },
     "/": {
@@ -128,6 +148,9 @@ export const routeTree = rootRoute
     },
     "/my-library/": {
       "filePath": "my-library/index.tsx"
+    },
+    "/my-page/": {
+      "filePath": "my-page/index.tsx"
     }
   }
 }

@@ -7,5 +7,11 @@
       "#/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "vite.config.js", "postcss.config.js"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "vite.config.js",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ]
 }

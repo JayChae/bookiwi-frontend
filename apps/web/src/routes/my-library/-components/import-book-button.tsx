@@ -19,12 +19,11 @@ function ImportBookButton() {
       setLoading(true);
       // Here you would handle the EPUB file import
       // For example, sending it to a backend or processing it locally
-      console.log("Selected EPUB file:", files[0].name);
 
       // Reset the file input to allow selecting the same file again
       e.target.value = "";
     } catch (error) {
-      console.error("Error importing EPUB file:", error);
+      // error 처리
     } finally {
       setLoading(false);
     }

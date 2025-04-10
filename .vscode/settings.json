@@ -7,5 +7,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "cSpell.words": ["classname", "bookiwi", ""]
+  "cSpell.words": [
+    "classname",
+    "bookiwi",
+    "epubjs",
+    "tanstack",
+    "tanstackrouter"
+  ]
 }

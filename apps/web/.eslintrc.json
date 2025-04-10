@@ -5,6 +5,7 @@
     "plugin:@tanstack/eslint-plugin-router/recommended"
   ],
   "rules": {
-    "@typescript-eslint/no-use-before-define": "off"
+    "@typescript-eslint/no-use-before-define": "off",
+    "react/require-default-props": "off"
   }
 }

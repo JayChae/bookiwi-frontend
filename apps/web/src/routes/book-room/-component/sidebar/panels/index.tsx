@@ -11,7 +11,7 @@ interface SidebarPanelsProps {
 
 function SidebarPanels({ activeTab }: SidebarPanelsProps) {
   return (
-    <div className="flex-1 overflow-auto p-6">
+    <div className="flex-1 overflow-auto py-6 pr-3">
       {activeTab === "toc" && <TableOfContents />}
       {activeTab === "bookmark" && <Bookmarks />}
       {activeTab === "search" && <SearchPanel />}

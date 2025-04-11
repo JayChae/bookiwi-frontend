@@ -1,4 +1,6 @@
-import { Menu, MessageSquareQuote } from "lucide-react";
+import { MessageSquareQuote } from "lucide-react";
+
+import Sidebar from "./sidebar";
 
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
 import { Separator } from "#/components/ui/separator";
@@ -13,12 +15,7 @@ function Header({ title, profileImage, color }: HeaderProps) {
   return (
     <header>
       <div className="flex items-center justify-between p-3">
-        <button
-          type="button"
-          className="flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
-        >
-          <Menu size={28} />
-        </button>
+        <Sidebar />
         <h1 className="text-xl font-semibold">{title}</h1>
         <div className="flex items-center gap-5 pr-3">
           <button

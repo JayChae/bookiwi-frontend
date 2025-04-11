@@ -1,5 +1,7 @@
 import { Search } from "lucide-react";
 
+import { Input } from "#/components/ui/input";
+
 function SearchPanel() {
   return (
     <div>
@@ -9,11 +11,7 @@ function SearchPanel() {
           size={18}
           className="absolute left-2 top-2.5 text-muted-foreground"
         />
-        <input
-          type="text"
-          placeholder="책 내용 검색..."
-          className="w-full rounded-md border border-input py-2 pl-8"
-        />
+        <Input type="text" placeholder="책 내용 검색..." className="pl-8" />
       </div>
       <div className="mt-4 text-sm text-muted-foreground">
         검색 결과가 여기에 표시됩니다.

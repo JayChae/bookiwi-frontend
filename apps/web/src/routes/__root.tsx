@@ -12,12 +12,7 @@ export const Route = createRootRoute({
         title: "Bookiwi",
       },
     ],
-    links: [
-      {
-        rel: "icon",
-        href: "/images/icon.png",
-      },
-    ],
+    links: [],
     scripts: [],
   }),
   component: () => (

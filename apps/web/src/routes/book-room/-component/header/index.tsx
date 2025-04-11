@@ -1,8 +1,9 @@
 import { MessageSquareQuote } from "lucide-react";
 
-import Sidebar from "./sidebar";
+import Sidebar from "../sidebar";
 
-import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
+import Profiles from "./profiles";
+
 import { Separator } from "#/components/ui/separator";
 
 interface HeaderProps {
@@ -25,16 +26,7 @@ function Header({ title, profileImage, color }: HeaderProps) {
             <MessageSquareQuote size={28} />
             <span className="absolute bottom-7 left-7 size-3 rounded-full bg-red-500 ring-2 ring-white" />
           </button>
-          <div className="relative cursor-pointer rounded-md p-2 hover:bg-gray-100">
-            <Avatar className="size-9 ">
-              <AvatarImage src={profileImage} />
-              <AvatarFallback>U</AvatarFallback>
-            </Avatar>
-            <span
-              className="absolute left-8 top-8 size-3 rounded-full ring-2 ring-white"
-              style={{ backgroundColor: color }}
-            />
-          </div>
+          <Profiles profileImage={profileImage} color={color} />
         </div>
       </div>
       <Separator />

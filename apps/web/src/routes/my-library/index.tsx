@@ -8,6 +8,13 @@ import LinkInput from "./-components/link-input";
 import bookRooms from "#/DB/book-room";
 
 export const Route = createFileRoute("/my-library/")({
+  head: () => ({
+    meta: [
+      {
+        title: "Bookiwi | 내 서재",
+      },
+    ],
+  }),
   component: MyLibrary,
 });
 

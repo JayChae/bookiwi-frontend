@@ -21,6 +21,11 @@ function SplitViewContainer({ className = "", children }: SplitViewProps) {
 
   if (!splitViewOpen) return null;
 
+  const handleCloseSplitView = () => {
+    setSplitViewOpen(false);
+    setSplitViewPinned(false);
+  };
+
   return (
     <div
       className={cn(
@@ -50,7 +55,7 @@ function SplitViewContainer({ className = "", children }: SplitViewProps) {
           </button>
           <button
             type="button"
-            onClick={() => setSplitViewOpen(false)}
+            onClick={handleCloseSplitView}
             className="rounded-md p-2 hover:bg-gray-100"
             aria-label="Close panel"
           >

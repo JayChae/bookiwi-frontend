@@ -1,10 +1,17 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 
 interface SplitViewContextType {
   splitViewOpen: boolean;
-  setSplitViewOpen: (open: boolean) => void;
+  setSplitViewOpen: Dispatch<SetStateAction<boolean>>;
   splitViewPinned: boolean;
-  setSplitViewPinned: (pinned: boolean) => void;
+  setSplitViewPinned: Dispatch<SetStateAction<boolean>>;
 }
 
 const SplitViewContext = createContext<SplitViewContextType | undefined>(

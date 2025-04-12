@@ -15,7 +15,13 @@ interface HeaderProps {
 }
 
 function Header({ title, profileImage, color }: HeaderProps) {
-  const { splitViewOpen, setSplitViewOpen } = useSplitView();
+  const { splitViewOpen, setSplitViewOpen, setSplitViewPinned } =
+    useSplitView();
+
+  const handleSplitView = () => {
+    setSplitViewOpen((prev) => !prev);
+    setSplitViewPinned((prev) => !prev);
+  };
 
   return (
     <header>
@@ -29,7 +35,7 @@ function Header({ title, profileImage, color }: HeaderProps) {
               "relative flex items-center justify-center rounded-md p-2",
               splitViewOpen ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100",
             )}
-            onClick={() => setSplitViewOpen(!splitViewOpen)}
+            onClick={handleSplitView}
             aria-label="Toggle notes and comments"
           >
             <MessageSquareQuote size={28} />

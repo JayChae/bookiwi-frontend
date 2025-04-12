@@ -13,10 +13,7 @@ interface ProfileButtonProps {
 
 function ProfileButton({ profileImage, color }: ProfileButtonProps) {
   return (
-    <button
-      type="button"
-      className="relative cursor-pointer rounded-md p-2 hover:bg-gray-100"
-    >
+    <div className="relative cursor-pointer rounded-md p-2 hover:bg-gray-100">
       <Avatar className="size-9 ">
         <AvatarImage src={profileImage} />
         <AvatarFallback>U</AvatarFallback>
@@ -25,7 +22,7 @@ function ProfileButton({ profileImage, color }: ProfileButtonProps) {
         className="absolute left-8 top-8 size-3 rounded-full ring-2 ring-white"
         style={{ backgroundColor: color }}
       />
-    </button>
+    </div>
   );
 }
 

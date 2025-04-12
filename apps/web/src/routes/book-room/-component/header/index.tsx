@@ -20,7 +20,7 @@ function Header({ title, profileImage, color }: HeaderProps) {
 
   const handleSplitView = () => {
     setSplitViewOpen((prev) => !prev);
-    setSplitViewPinned((prev) => !prev);
+    setSplitViewPinned(false);
   };
 
   return (

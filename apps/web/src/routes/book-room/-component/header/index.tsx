@@ -1,10 +1,12 @@
 import { MessageSquareQuote } from "lucide-react";
 
 import Sidebar from "../sidebar";
+import { useSplitView } from "../split-view/context";
 
 import Profiles from "./profiles";
 
 import { Separator } from "#/components/ui/separator";
+import { cn } from "#/lib/utils";
 
 interface HeaderProps {
   title: string;
@@ -13,6 +15,8 @@ interface HeaderProps {
 }
 
 function Header({ title, profileImage, color }: HeaderProps) {
+  const { splitViewOpen, setSplitViewOpen } = useSplitView();
+
   return (
     <header>
       <div className="flex items-center justify-between p-3">
@@ -21,7 +25,12 @@ function Header({ title, profileImage, color }: HeaderProps) {
         <div className="flex items-center gap-5 pr-3">
           <button
             type="button"
-            className="relative flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
+            className={cn(
+              "relative flex items-center justify-center rounded-md p-2",
+              splitViewOpen ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100",
+            )}
+            onClick={() => setSplitViewOpen(!splitViewOpen)}
+            aria-label="Toggle notes and comments"
           >
             <MessageSquareQuote size={28} />
             <span className="absolute bottom-7 left-7 size-3 rounded-full bg-red-500 ring-2 ring-white" />

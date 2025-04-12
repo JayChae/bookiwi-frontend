@@ -47,7 +47,14 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
     };
   }, [navigate]);
 
-  const value = useMemo(() => ({ book, setBook }), [book, setBook]);
+  const value = useMemo(
+    () => ({
+      book,
+      setBook,
+    }),
+    [book, setBook],
+  );
+
   return (
     <ReaderContext.Provider value={value}>{children}</ReaderContext.Provider>
   );

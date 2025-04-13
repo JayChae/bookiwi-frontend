@@ -10,7 +10,7 @@ interface BookRoom {
 
 function Library({ bookRooms }: { bookRooms: BookRoom[] }) {
   return (
-    <section className="flex flex-wrap gap-10">
+    <section className="flex flex-wrap gap-10 mobile:grid mobile:grid-cols-2 mobile:gap-4">
       {bookRooms.map((bookRoom) => (
         <BookRoomCard
           key={bookRoom.id}

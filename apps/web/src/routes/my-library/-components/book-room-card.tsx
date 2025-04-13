@@ -31,14 +31,21 @@ function BookRoomCard({
     "https://placehold.co/300x400/e2e8f0/64748b?text=No+Cover";
 
   return (
-    <Link from="/" to="/book-room/$id" params={{ id }}>
-      <Card className="w-64">
-        <CardHeader className="relative">
+    <Link
+      from="/"
+      to="/book-room/$id"
+      params={{ id }}
+      className="mobile:w-full"
+    >
+      <Card className="w-64 mobile:w-full">
+        <CardHeader className="relative mobile:p-3">
           <CardDropdown />
-          <CardTitle className="text-lg">{name}</CardTitle>
-          <CardDescription>{description}</CardDescription>
+          <CardTitle className="text-lg mobile:text-base">{name}</CardTitle>
+          <CardDescription className="mobile:text-xs">
+            {description}
+          </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="mobile:p-3 mobile:pt-0">
           {/* Book cover image */}
           <div className="aspect-[4/5] overflow-hidden rounded-md bg-gray-100">
             <img
@@ -52,8 +59,10 @@ function BookRoomCard({
             />
           </div>
         </CardContent>
-        <CardFooter className="flex justify-between">
-          <p className="text-sm text-muted-foreground">{lastActivityAt}</p>
+        <CardFooter className="flex justify-between mobile:p-3 mobile:pt-1">
+          <p className="text-sm text-muted-foreground mobile:text-xs">
+            {lastActivityAt}
+          </p>
         </CardFooter>
       </Card>
     </Link>

@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import Annotation from "./-component/annotation";
 import Header from "./-component/header";
 import Reader from "./-component/reader";
+import {
+  PrimaryView,
+  SecondaryView,
+  SplitViewProvider,
+} from "./-component/split-view";
 import { ReaderProvider } from "./-reader";
 
 import bookRooms from "#/DB/book-room";
@@ -32,20 +38,36 @@ export const Route = createFileRoute("/book-room/$id")({
   component: BookRoom,
 });
 
-function BookRoom() {
+function BookRoomContent() {
   const { bookRoom } = Route.useLoaderData();
   const bookTitle = bookRoom?.name || "Alice's Adventures in Wonderland";
 
   return (
-    <main className="flex size-full h-screen w-screen flex-col overflow-y-hidden">
-      <ReaderProvider>
-        <Header
-          title={bookTitle}
-          profileImage="https://github.com/shadcn.png"
-          color="green"
-        />
-        <Reader />
-      </ReaderProvider>
+    <main className="flex size-full flex-col overflow-hidden">
+      <Header
+        title={bookTitle}
+        profileImage="https://github.com/shadcn.png"
+        color="green"
+      />
+      <div className="relative flex size-full">
+        <PrimaryView>
+          <Reader />
+        </PrimaryView>
+
+        <SecondaryView>
+          <Annotation />
+        </SecondaryView>
+      </div>
     </main>
+  );
+}
+
+function BookRoom() {
+  return (
+    <ReaderProvider>
+      <SplitViewProvider>
+        <BookRoomContent />
+      </SplitViewProvider>
+    </ReaderProvider>
   );
 }

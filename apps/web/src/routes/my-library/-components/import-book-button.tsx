@@ -34,7 +34,7 @@ function ImportBookButton() {
       <Button
         onClick={handleImportClick}
         disabled={loading}
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 mobile:w-full mobile:justify-center"
         variant="outline"
       >
         <UploadIcon size={16} />

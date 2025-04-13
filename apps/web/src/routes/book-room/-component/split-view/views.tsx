@@ -31,7 +31,7 @@ export function SecondaryView({ children }: ViewContainerProps) {
   if (!isOpen) return null;
 
   return (
-    <div
+    <aside
       className={cn(
         "animate-slide-in-right",
         SECONDARY_VIEW_WIDTH,
@@ -40,6 +40,6 @@ export function SecondaryView({ children }: ViewContainerProps) {
       )}
     >
       {children}
-    </div>
+    </aside>
   );
 }

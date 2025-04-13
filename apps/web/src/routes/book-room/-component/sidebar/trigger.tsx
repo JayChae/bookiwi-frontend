@@ -9,7 +9,7 @@ function SidebarTrigger() {
         type="button"
         className="flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
       >
-        <Menu size={28} />
+        <Menu size={24} />
       </button>
     </SheetTrigger>
   );

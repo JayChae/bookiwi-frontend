@@ -17,8 +17,8 @@ function AnnotationButton() {
       onClick={toggle}
       aria-label="Toggle notes and comments"
     >
-      <MessageSquareQuote size={28} />
-      <span className="absolute bottom-7 left-7 size-3 rounded-full bg-red-500 ring-2 ring-white" />
+      <MessageSquareQuote size={24} />
+      <span className="absolute bottom-6 left-6 size-2 rounded-full bg-red-500 ring-2 ring-white" />
     </button>
   );
 }

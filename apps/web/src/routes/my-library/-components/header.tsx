@@ -8,9 +8,12 @@ import { Separator } from "#/components/ui/separator";
 function Header() {
   return (
     <header className="sticky top-0 z-20 bg-white/50">
-      <nav className="flex items-center justify-between p-3">
+      <nav className="flex items-center justify-between p-3 mobile:p-2">
         <div className="flex items-center">
-          <Link to="/" className="text-xl font-bold text-primary">
+          <Link
+            to="/"
+            className="text-xl font-bold text-primary mobile:text-lg"
+          >
             Bookiwi
           </Link>
         </div>
@@ -19,10 +22,10 @@ function Header() {
           <Notification />
           <Link
             to="/my-page"
-            className="rounded-full p-2 hover:bg-gray-100"
+            className="rounded-full p-2 hover:bg-gray-100 mobile:p-1"
             aria-label="Profile"
           >
-            <Avatar className="size-10">
+            <Avatar className="size-10 mobile:size-8">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>

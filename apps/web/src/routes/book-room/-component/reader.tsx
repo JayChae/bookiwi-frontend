@@ -9,7 +9,7 @@ import {
 
 function Reader() {
   return (
-    <section className="relative size-full p-12">
+    <section className="relative flex size-full flex-col px-12">
       <ReaderPrevPageButton className="absolute left-0 top-0 flex h-full w-12 items-center justify-center">
         <ChevronLeftIcon className="size-6" />
       </ReaderPrevPageButton>

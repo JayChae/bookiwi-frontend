@@ -43,16 +43,17 @@ function BookRoomContent() {
   const bookTitle = bookRoom?.name || "Alice's Adventures in Wonderland";
 
   return (
-    <main className="flex size-full h-screen w-screen flex-col overflow-hidden">
+    <main className="flex size-full flex-col overflow-hidden">
       <Header
         title={bookTitle}
         profileImage="https://github.com/shadcn.png"
         color="green"
       />
-      <div className="relative flex flex-1 overflow-hidden">
+      <div className="relative flex size-full">
         <PrimaryView>
           <Reader />
         </PrimaryView>
+
         <SecondaryView>
           <Annotation />
         </SecondaryView>

@@ -4,22 +4,17 @@ import { useSplitView } from "../split-view";
 
 import { cn } from "#/lib/utils";
 
-function Annotation() {
-  const { splitViewOpen, setSplitViewOpen, setSplitViewPinned } =
-    useSplitView();
+function AnnotationButton() {
+  const { isOpen, toggle } = useSplitView();
 
-  const handleSplitView = () => {
-    setSplitViewOpen((prev) => !prev);
-    setSplitViewPinned(false);
-  };
   return (
     <button
       type="button"
       className={cn(
         "relative flex items-center justify-center rounded-md p-2",
-        splitViewOpen ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100",
+        isOpen ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100",
       )}
-      onClick={handleSplitView}
+      onClick={toggle}
       aria-label="Toggle notes and comments"
     >
       <MessageSquareQuote size={28} />
@@ -28,4 +23,4 @@ function Annotation() {
   );
 }
 
-export default Annotation;
+export default AnnotationButton;

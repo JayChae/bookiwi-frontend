@@ -1,6 +1,6 @@
 import Sidebar from "../sidebar";
 
-import Annotation from "./annotation";
+import AnnotationButton from "./annotation-button";
 import Profiles from "./profiles";
 
 import { Separator } from "#/components/ui/separator";
@@ -18,7 +18,7 @@ function Header({ title, profileImage, color }: HeaderProps) {
         <Sidebar />
         <h1 className="text-xl font-semibold">{title}</h1>
         <div className="flex items-center gap-5 pr-3">
-          <Annotation />
+          <AnnotationButton />
           <Profiles profileImage={profileImage} color={color} />
         </div>
       </div>

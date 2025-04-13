@@ -5,12 +5,14 @@ import { useSplitView } from "../split-view";
 import { cn } from "#/lib/utils";
 
 function AnnotationHeader() {
-  const { setSplitViewOpen, splitViewPinned, setSplitViewPinned } =
-    useSplitView();
+  const { isPinned, pin, unpin, close } = useSplitView();
 
-  const handleCloseSplitView = () => {
-    setSplitViewOpen(false);
-    setSplitViewPinned(false);
+  const togglePin = () => {
+    if (isPinned) {
+      unpin();
+    } else {
+      pin();
+    }
   };
 
   return (
@@ -19,18 +21,18 @@ function AnnotationHeader() {
       <div className="flex items-center gap-2">
         <button
           type="button"
-          onClick={() => setSplitViewPinned(!splitViewPinned)}
+          onClick={togglePin}
           className={cn(
             "rounded-md p-2",
-            splitViewPinned ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100",
+            isPinned ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100",
           )}
-          aria-label={splitViewPinned ? "Unpin panel" : "Pin panel"}
+          aria-label={isPinned ? "Unpin panel" : "Pin panel"}
         >
           <Pin size={18} />
         </button>
         <button
           type="button"
-          onClick={handleCloseSplitView}
+          onClick={close}
           className="rounded-md p-2 hover:bg-gray-100"
           aria-label="Close panel"
         >

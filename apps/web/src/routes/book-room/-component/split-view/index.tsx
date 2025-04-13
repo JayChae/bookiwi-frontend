@@ -1,2 +1,2 @@
 export { SplitViewProvider, useSplitView } from "./context";
-export { PrimaryView, SecondaryView } from "./view-containers";
+export { PrimaryView, SecondaryView } from "./views";

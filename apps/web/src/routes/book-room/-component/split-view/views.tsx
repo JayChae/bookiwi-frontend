@@ -17,7 +17,7 @@ export function PrimaryView({ children, className = "" }: ViewContainerProps) {
     <div
       className={cn(
         splitViewPinned ? PRIMARY_VIEW_WIDTH : "w-full",
-        "transition-all duration-300",
+        "transition-all duration-300 ease-in-out",
         className,
       )}
     >
@@ -37,6 +37,7 @@ export function SecondaryView({
   return (
     <div
       className={cn(
+        "animate-slide-in-right",
         SECONDARY_VIEW_WIDTH,
         "h-full border-l border-gray-200 bg-white shadow-xl",
         splitViewPinned ? "" : "absolute right-0 top-0 z-30",

@@ -1,9 +1,11 @@
 import { useEffect, useRef, ComponentPropsWithoutRef } from "react";
 
 import { useReader } from "./context";
+import useTouchScreen from "./hooks/use-touch-screen";
 
 function ReaderContents(props: ComponentPropsWithoutRef<"div">) {
   const viewerRef = useRef<HTMLDivElement>(null);
+  const { readerRef } = useTouchScreen();
   const { book } = useReader();
 
   useEffect(() => {
@@ -20,7 +22,32 @@ function ReaderContents(props: ComponentPropsWithoutRef<"div">) {
     book.rendition.display();
   }, [book]);
 
-  return <div ref={viewerRef} {...props} />;
+  useEffect(() => {
+    if (!book) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        book.rendition.prev();
+      } else if (e.key === "ArrowRight") {
+        book.rendition.next();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [book]);
+
+  // Function to set refs
+  const setRefs = (el: HTMLDivElement | null) => {
+    viewerRef.current = el;
+    readerRef.current = el;
+  };
+
+  return <div ref={setRefs} {...props} />;
 }
 
 export { ReaderContents };

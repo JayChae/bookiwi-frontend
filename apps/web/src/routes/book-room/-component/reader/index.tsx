@@ -5,9 +5,19 @@ import {
   ReaderNextPageButton,
   ReaderPageProgress,
   ReaderPrevPageButton,
-} from "../-reader";
+} from "../../-reader";
+import { isTouchScreen } from "../../../../utils/is-touch-screen";
 
-function Reader() {
+function TouchReader() {
+  return (
+    <section className="relative flex size-full flex-col">
+      <ReaderContents className="size-full" />
+      <ReaderPageProgress />
+    </section>
+  );
+}
+
+function DesktopReader() {
   return (
     <section className="relative flex size-full flex-col px-12">
       <ReaderPrevPageButton className="absolute left-0 top-0 flex h-full w-12 items-center justify-center">
@@ -20,6 +30,12 @@ function Reader() {
       <ReaderPageProgress />
     </section>
   );
+}
+
+function Reader() {
+  const isTouch = isTouchScreen();
+
+  return isTouch ? <TouchReader /> : <DesktopReader />;
 }
 
 export default Reader;

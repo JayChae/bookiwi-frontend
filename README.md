@@ -9,3 +9,7 @@ Bookiwi는 소셜 이북 리더기입니다. 여러 사용자가 하나의 EPUB 
 ### ⚙️ Setup
 
 - [Husky lint-staged in monorepo](https://github.com/JayChae/bookiwi-frontend/wiki/husky-monorepo).
+- [cross-env](https://github.com/JayChae/bookiwi-frontend/wiki/cross-env).
+- [Generate js file during build Issue](https://github.com/JayChae/bookiwi-frontend/wiki/noEmit).
+- [tsconfig in monorepo](https://github.com/JayChae/bookiwi-frontend/wiki/tsconfig-monorepo).
+- [Build Internal Package in Turborepo](https://github.com/JayChae/bookiwi-frontend/wiki/internal-packages).

@@ -1,10 +1,11 @@
-function AnnotationContainer({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="text-center text-gray-500">
-      <p>Notes and comments will appear here</p>
-      {children}
-    </div>
-  );
+import { ReactNode } from "react";
+
+interface SplitViewProps {
+  children?: ReactNode;
+}
+
+function AnnotationContainer({ children }: SplitViewProps) {
+  return <div className="flex flex-col">{children}</div>;
 }
 
 export default AnnotationContainer;

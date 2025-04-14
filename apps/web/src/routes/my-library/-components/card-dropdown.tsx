@@ -34,9 +34,11 @@ function CardDropdown() {
       >
         <DropdownMenuItem className="mobile:py-3">같이 읽기</DropdownMenuItem>
         <DropdownMenuSeparator />
+        <DropdownMenuItem className="mobile:py-3">다 읽었어요</DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuItem className="mobile:py-3">복제하기</DropdownMenuItem>
-        <DropdownMenuItem className="mobile:py-3">삭제하기</DropdownMenuItem>
         <DropdownMenuItem className="mobile:py-3">수정하기</DropdownMenuItem>
+        <DropdownMenuItem className="mobile:py-3">삭제하기</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

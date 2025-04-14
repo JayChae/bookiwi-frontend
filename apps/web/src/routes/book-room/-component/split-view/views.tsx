@@ -17,7 +17,7 @@ export function PrimaryView({ children }: ViewContainerProps) {
       className={cn(
         "h-full",
         isPinned ? PRIMARY_VIEW_WIDTH : "w-full",
-        "transition-all duration-1000 ease-in-out",
+        "transition-all duration-500 ease-in-out",
       )}
     >
       {children}
@@ -26,17 +26,16 @@ export function PrimaryView({ children }: ViewContainerProps) {
 }
 
 export function SecondaryView({ children }: ViewContainerProps) {
-  const { isPinned, isOpen } = useSplitView();
+  const { isOpen } = useSplitView();
 
   if (!isOpen) return null;
 
   return (
     <aside
       className={cn(
-        "animate-slide-in-right",
+        "animate-slide-in-right absolute right-0 top-0 z-30",
         SECONDARY_VIEW_WIDTH,
         "h-full border-l border-gray-200 bg-white shadow-xl p-1",
-        isPinned ? "" : "absolute right-0 top-0 z-30",
       )}
     >
       {children}

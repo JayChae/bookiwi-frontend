@@ -35,7 +35,7 @@ function ImportBookButton() {
         onClick={handleImportClick}
         disabled={loading}
         className="flex items-center gap-2 mobile:w-full mobile:justify-center"
-        variant="outline"
+        variant="secondary"
       >
         <UploadIcon size={16} />
         EPUB 파일 가져오기

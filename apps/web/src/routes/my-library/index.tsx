@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 
 import Header from "./-components/header";
 import ImportBookButton from "./-components/import-book-button";
@@ -6,6 +7,7 @@ import Library from "./-components/library";
 import LinkInput from "./-components/link-input";
 
 import bookRooms from "#/DB/book-room";
+import { Button } from "#/components/ui/button";
 
 export const Route = createFileRoute("/my-library/")({
   head: () => ({
@@ -30,12 +32,18 @@ function MyLibrary() {
               {`(${bookRooms.length})`}
             </data>
           </h1>
+
           <div className="flex items-center gap-3 mobile:w-full mobile:flex-col mobile:gap-2">
             <LinkInput />
             <ImportBookButton />
+            <Link to="/my-library/finished">
+              <Button variant="outline">
+                완독한 책
+                <ArrowRight className="size-4" />
+              </Button>
+            </Link>
           </div>
         </div>
-
         <Library bookRooms={bookRooms} />
       </main>
     </div>

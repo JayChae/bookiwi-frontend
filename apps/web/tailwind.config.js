@@ -5,11 +5,19 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
+      // 모바일 디바이스 (최대 639px)
       mobile: { max: "639px" },
+      // 태블릿 디바이스 (640px부터 767px까지)
+      tablet: { min: "640px", max: "767px" },
+      // 작은 화면 (최소 640px부터)
       sm: "640px",
+      // 중간 화면 (최소 768px부터)
       md: "768px",
+      // 큰 화면 (최소 1024px부터)
       lg: "1024px",
+      // 매우 큰 화면 (최소 1280px부터)
       xl: "1280px",
+      // 초대형 화면 (최소 1536px부터)
       "2xl": "1536px",
     },
     extend: {

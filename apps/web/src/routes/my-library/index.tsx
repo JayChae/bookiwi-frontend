@@ -26,7 +26,7 @@ function MyLibrary() {
       <Header />
       <main className="size-full bg-white p-6 mobile:p-4">
         <div className="mb-7 flex items-center justify-between mobile:mb-5 mobile:flex-col mobile:items-start mobile:gap-4">
-          <h1 className="text-2xl font-bold mobile:text-xl">
+          <h1 className="text-2xl font-bold mobile:text-xl tablet:text-xl">
             내 서재
             <data className="text-xl text-muted-foreground mobile:text-lg">
               {`(${bookRooms.length})`}
@@ -36,10 +36,10 @@ function MyLibrary() {
           <div className="flex items-center gap-3 mobile:w-full mobile:flex-col mobile:gap-2">
             <LinkInput />
             <ImportBookButton />
-            <Link to="/my-library/finished">
-              <Button variant="outline">
+            <Link to="/my-library/finished" className="mobile:w-full">
+              <Button variant="outline" className="mobile:w-full">
                 완독한 책
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-4 tablet:hidden" />
               </Button>
             </Link>
           </div>

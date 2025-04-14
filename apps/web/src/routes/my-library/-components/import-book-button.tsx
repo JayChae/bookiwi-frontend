@@ -38,7 +38,7 @@ function ImportBookButton() {
         variant="secondary"
       >
         <UploadIcon size={16} />
-        EPUB 파일 가져오기
+        <span className="tablet:hidden">EPUB 파일 가져오기</span>
       </Button>
       <input
         ref={fileInputRef}
